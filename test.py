@@ -40,34 +40,36 @@ def criptografia(senha):
     #Somar o resto a 65 e converter valor de volta p/ letra (2+65 = 67 = "C")
     for char in senha:
         senha_cripto = ""
-        if char.isdigit():
-            ref = ord("0") #10
-            ascii_char = ord(char) #etapa 1
-            pos_alpha = ascii_char - ref #etapa 2
-            pos_cesar = pos_alpha + 3 #etapa 3
-            pos_resto = pos_cesar % 10 #etapa 4
-            letra_cesar = chr(pos_resto + ref) #etapa 5
-            senha_cripto += letra_cesar
-        elif "A" <= char <= "Z":
-            ref = ord("A") #65
-            ascii_char = ord(char) #etapa 1
-            pos_alpha = ascii_char - ref #etapa 2
-            pos_cesar = pos_alpha + 3 #etapa 3
-            pos_resto = pos_cesar % 26 #etapa 4
-            letra_cesar = chr(pos_resto + ref) #etapa 5
-            senha_cripto += letra_cesar
-        elif "a" <= char <= "z":
-            ref = ord("a") #65
-            ascii_char = ord(char) #etapa 1
-            pos_alpha = ascii_char - ref #etapa 2
-            pos_cesar = pos_alpha + 3 #etapa 3
-            pos_resto = pos_cesar % 26 #etapa 4
-            letra_cesar = chr(pos_resto + ref) #etapa 5
-            senha_cripto += letra_cesar
-        else:
-            senha_cripto += char
+        for char in senha:
+            if char.isdigit():
+                ref = ord("0") #10
+                ascii_char = ord(char) #etapa 1
+                pos_alpha = ascii_char - ref #etapa 2
+                pos_cesar = pos_alpha + 3 #etapa 3
+                pos_resto = pos_cesar % 10 #etapa 4
+                letra_cesar = chr(pos_resto + ref) #etapa 5
+                senha_cripto += letra_cesar
+            elif "A" <= char <= "Z":
+                ref = ord("A") #65
+                ascii_char = ord(char) #etapa 1
+                pos_alpha = ascii_char - ref #etapa 2
+                pos_cesar = pos_alpha + 3 #etapa 3
+                pos_resto = pos_cesar % 26 #etapa 4
+                letra_cesar = chr(pos_resto + ref) #etapa 5
+                senha_cripto += letra_cesar
+            elif "a" <= char <= "z":
+                ref = ord("a") #65
+                ascii_char = ord(char) #etapa 1
+                pos_alpha = ascii_char - ref #etapa 2
+                pos_cesar = pos_alpha + 3 #etapa 3
+                pos_resto = pos_cesar % 26 #etapa 4
+                letra_cesar = chr(pos_resto + ref) #etapa 5
+                senha_cripto += letra_cesar
+            else:
+                senha_cripto += char
+        return senha_cripto
 
-
+print (criptografia("abc123@."))
 
 
 
