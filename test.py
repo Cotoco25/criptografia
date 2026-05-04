@@ -70,8 +70,41 @@ def criptografia(senha):
         return senha_cripto
 
 print (criptografia("abc123@."))
+senha_cripto_nova = criptografia("abc123@.")
 
+def decriptografia(senha_cripto_nova):
+    for char in senha_cripto_nova:
+        senha_decripto = ""
+        for char in senha_cripto_nova:
+            if char.isdigit():
+                ref = ord("0") #10
+                ascii_char = ord(char) #etapa 1
+                pos_alpha = ascii_char - ref #etapa 2
+                pos_cesar = pos_alpha - 3 #etapa 3
+                pos_resto = pos_cesar % 10 #etapa 4
+                letra_cesar = chr(pos_resto + ref) #etapa 5
+                senha_decripto += letra_cesar
+            elif "A" <= char <= "Z":
+                ref = ord("A") #65
+                ascii_char = ord(char) #etapa 1
+                pos_alpha = ascii_char - ref #etapa 2
+                pos_cesar = pos_alpha - 3 #etapa 3
+                pos_resto = pos_cesar % 26 #etapa 4
+                letra_cesar = chr(pos_resto + ref) #etapa 5
+                senha_decripto += letra_cesar
+            elif "a" <= char <= "z":
+                ref = ord("a") #65
+                ascii_char = ord(char) #etapa 1
+                pos_alpha = ascii_char - ref #etapa 2
+                pos_cesar = pos_alpha - 3 #etapa 3
+                pos_resto = pos_cesar % 26 #etapa 4
+                letra_cesar = chr(pos_resto + ref) #etapa 5
+                senha_decripto += letra_cesar
+            else:
+                senha_decripto += char
+        return senha_decripto
 
+print (decriptografia(senha_cripto_nova))
 
 print(valida_senha("Abc@1234")) #True
 print(valida_senha("ABC@1234")) #False
