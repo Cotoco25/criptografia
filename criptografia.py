@@ -93,6 +93,8 @@ while running:
                 if ev.button == 1:
                     modo = 3
 
+
+
     draw.rect(window, (120, 120, 120), (50, 20, 100, 70))
     draw.rect(window, (0, 0, 0), (50, 20, 100, 70),5)
 
