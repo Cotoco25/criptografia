@@ -52,6 +52,7 @@ while running:
             if ev.unicode:
                 lugar += ev.unicode
 
+
         if modo == 1:
             if ev.type == KEYDOWN:
                 if ev.unicode:
